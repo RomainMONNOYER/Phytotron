@@ -1,7 +1,7 @@
 {
     "name":"Pogotron as Progressive Web App",
     "short_name": "Pogotron",
-    "start_url":"/index.html",
+    "start_url":"index.html",
     "display":"standalone",
     "orientation":"portrait-primary",
     "background_color":"#4f71ab",
