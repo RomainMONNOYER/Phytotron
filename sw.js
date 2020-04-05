@@ -1,14 +1,16 @@
 importScripts('js/idb.js');
 importScripts ("js/utility");
 
-var CACHE_STATIC_NAME = 'static-v1';
-var CACHE_DYNAMIC_NAME = 'dynamic-v1';
+var CACHE_STATIC_NAME = 'static-v4';
+var CACHE_DYNAMIC_NAME = 'dynamic-v4';
 var STATIC_FILES=[
     //pages
     'index.html',
 
     //CSS
     'css/bootstrap.min.css',
+    'css/carte.css',
+    'css/style.css',
 
     //JavaScript
     'js/jquery-3.4.1.slim.min.js',
@@ -55,25 +57,66 @@ self.addEventListener('activate', function(event) {
     return self.clients.claim();
 });
 
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request)
-            .then(function(response) {
-                if (response) {
-                    return response;
-                } else {
-                    return fetch(event.request)
-                        .then(function(res) {
-                            return caches.open(CACHE_DYNAMIC_NAME)
-                                .then(function(cache) {
-                                    cache.put(event.request.url, res.clone());
-                                    return res;
-                                })
-                        })
-                        .catch(function(err) {
+function isInArray(string, array) {
+    var cachePath;
+    if (string.indexOf(self.origin) === 0) { // request targets domain where we serve the page from (i.e. NOT a CDN)
+        console.log('matched ', string);
+        cachePath = string.substring(self.origin.length); // take the part of the URL AFTER the domain (e.g. after localhost:8080)
+    } else {
+        cachePath = string; // store the full request (for CDNs)
+    }
+    return array.indexOf(cachePath) > -1;
+}
 
-                        });
-                }
+self.addEventListener('fetch', function (event) {
+
+    var url = 'https://pwagram-99adf.firebaseio.com/posts';
+    if (event.request.url.indexOf(url) > -1) {
+        event.respondWith(fetch(event.request)
+            .then(function (res) {
+                var clonedRes = res.clone();
+                clearAllData('posts')
+                    .then(function () {
+                        return clonedRes.json();
+                    })
+                    .then(function (data) {
+                        for (var key in data) {
+                            writeData('posts', data[key])
+                        }
+                    });
+                return res;
             })
-    );
+        );
+    } else if (isInArray(event.request.url, STATIC_FILES)) {
+        event.respondWith(
+            caches.match(event.request)
+        );
+    } else {
+        event.respondWith(
+            caches.match(event.request)
+                .then(function (response) {
+                    if (response) {
+                        return response;
+                    } else {
+                        return fetch(event.request)
+                            .then(function (res) {
+                                return caches.open(CACHE_DYNAMIC_NAME)
+                                    .then(function (cache) {
+                                        // trimCache(CACHE_DYNAMIC_NAME, 3);
+                                        cache.put(event.request.url, res.clone());
+                                        return res;
+                                    })
+                            })
+                            .catch(function (err) {
+                                return caches.open(CACHE_STATIC_NAME)
+                                    .then(function (cache) {
+                                        if (event.request.headers.get('accept').includes('text/html')) {
+                                            return cache.match('/offline.html');
+                                        }
+                                    });
+                            });
+                    }
+                })
+        );
+    }
 });
