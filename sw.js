@@ -23,7 +23,7 @@ self.addEventListener('install', function(event) {
                     'js/app.js',
 
                     //Supplement
-                    'img/pogona-qui-mange.mp4'
+                    'img/videos/pogona-qui-mange.mp4'
                 ]);
             })
     )
