@@ -1,5 +1,32 @@
-var CACHE_STATIC_NAME = 'static-v2';
-var CACHE_DYNAMIC_NAME = 'dynamic-v2';
+importScripts('js/idb.js');
+importScripts ("js/utility");
+
+var CACHE_STATIC_NAME = 'static-v1';
+var CACHE_DYNAMIC_NAME = 'dynamic-v1';
+var STATIC_FILES=[
+    //pages
+    'index.html',
+
+    //CSS
+    'css/bootstrap.min.css',
+
+    //JavaScript
+    'js/jquery-3.4.1.slim.min.js',
+    'js/popper.min.js',
+    'js/bootstrap.min.js',
+    'js/fetch.js',
+    'js/idb.js',
+    'js/utility.js',
+    'js/promise.js',
+    'js/app.js',
+
+    //Supplement
+    'img/videos/pogona-qui-mange.mp4'
+];
+
+var dbPromise = idb.open('store',1,function (db) {
+    db.createObjectStore('something')
+});
 
 self.addEventListener('install', function(event) {
     console.log('[Service Worker] Installing Service Worker ...', event);
@@ -7,24 +34,7 @@ self.addEventListener('install', function(event) {
         caches.open(CACHE_STATIC_NAME)
             .then(function(cache) {
                 console.log('[Service Worker] Precaching App Shell');
-                cache.addAll([
-                    //pages
-                    'index.html',
-
-                    //CSS
-                    'css/bootstrap.min.css',
-
-                    //JavaScript
-                    'js/jquery-3.4.1.slim.min.js',
-                    'js/popper.min.js',
-                    'js/bootstrap.min.js',
-                    'js/fetch.js',
-                    'js/promise.js',
-                    'js/app.js',
-
-                    //Supplement
-                    'img/videos/pogona-qui-mange.mp4'
-                ]);
+                cache.addAll(STATIC_FILES);
             })
     )
 });
