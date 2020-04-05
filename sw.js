@@ -1,5 +1,24 @@
-var CACHE_STATIC_NAME = 'static-v2';
-var CACHE_DYNAMIC_NAME = 'dynamic-v2';
+var CACHE_STATIC_NAME = 'static-v0';
+var CACHE_DYNAMIC_NAME = 'dynamic-v0';
+var STATIC_FILES = [
+    //pages
+    'index.html',
+
+    //CSS
+    'css/bootstrap.min.css',
+
+    //JavaScript
+    'js/jquery-3.4.1.slim.min.js',
+    'js/popper.min.js',
+    'js/bootstrap.min.js',
+    'js/fetch.js',
+    'js/promise.js',
+    'js/app.js',
+
+    //Supplement
+    'img/videos/pogona-qui-mange.mp4'
+
+];
 
 self.addEventListener('install', function(event) {
     console.log('[Service Worker] Installing Service Worker ...', event);
@@ -7,24 +26,7 @@ self.addEventListener('install', function(event) {
         caches.open(CACHE_STATIC_NAME)
             .then(function(cache) {
                 console.log('[Service Worker] Precaching App Shell');
-                cache.addAll([
-                    //pages
-                    'index.html',
-
-                    //CSS
-                    'css/bootstrap.min.css',
-
-                    //JavaScript
-                    'js/jquery-3.4.1.slim.min.js',
-                    'js/popper.min.js',
-                    'js/bootstrap.min.js',
-                    'js/fetch.js',
-                    'js/promise.js',
-                    'js/app.js',
-
-                    //Supplement
-                    'img/videos/pogona-qui-mange.mp4'
-                ]);
+                cache.addAll(STATIC_FILES);
             })
     )
 });
@@ -44,26 +46,58 @@ self.addEventListener('activate', function(event) {
     );
     return self.clients.claim();
 });
-
+//self.addEventListener('fetch', function (event) {
+//     //Revoir la stratégie
+//     var url = 'https://www.smartappli.eu/pogotron/';
+//     if (event.request.url.indexOf(url) > -1) {
+//         event.respondWith(
+//             caches.open(CACHE_DYNAMIC_NAME)
+//                 .then(function (cache) {
+//                     return fetch(event.request)
+//                         .then(function (res) {
+//                             cache.put(event.request, res.clone());
+//                             return res;
+//                         });
+//                 })
+//         );
+//     } else {
+//         event.respondWith(
+//             caches.match(event.request)
+//                 .then(function (response) {
+//                     if (response) {
+//                         return response;
+//                     } else {
+//                         return fetch(event.request)
+//                             .then(function (res) {
+//                                 return caches.open(CACHE_DYNAMIC_NAME)
+//                                     .then(function (cache) {
+//                                         cache.put(event.request.url, res.clone());
+//                                         return res;
+//                                     })
+//                             })
+//                             .catch(function (err) {
+//                                 return caches.open(CACHE_STATIC_NAME)
+//                                     .then(function (cache) {
+//                                         return cache.match('/offline.html');
+//                                     });
+//                             });
+//                     }
+//                 })
+//         );
+//     }
+// });
 self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request)
-            .then(function(response) {
-                if (response) {
-                    return response;
-                } else {
-                    return fetch(event.request)
-                        .then(function(res) {
-                            return caches.open(CACHE_DYNAMIC_NAME)
-                                .then(function(cache) {
-                                    cache.put(event.request.url, res.clone());
-                                    return res;
-                                })
-                        })
-                        .catch(function(err) {
-
-                        });
-                }
-            })
-    );
+     event.respondWith(
+         fetch(event.request)
+             .then(function(res) {
+                 return caches.open(CACHE_DYNAMIC_NAME)
+                     .then(function(cache) {
+                        cache.put(event.request.url, res.clone());
+                         return res;
+                     })
+             })
+             .catch(function(err) {
+                 return caches.match(event.request);
+             })
+     );
 });
