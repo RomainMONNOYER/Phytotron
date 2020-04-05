@@ -5,6 +5,7 @@
     <title> Pogotron </title>
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carte.css">
     <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -16,7 +17,7 @@
 <body>
 
     <!-- Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light color_nav sticky-top">
         <a class="navbar-brand" href="index.html">Pogotron</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,32 +50,107 @@
         </div>
     </nav>
 
-    <!-- video -->
-    <br>
-    <br>
-    <div class="jumbotron jumbotron-no-padding">
-        <video id="video-background" preload="" muted="" autoplay="" loop="">
-            <source src="img/videos/pogona-qui-mange.mp4" type="video/mp4">
-        </video>
-        <div class="jumbotron-overlay ">
-            <div class="contain jumbotron-padding text-center">
-                <h1 class="display-4">Manage your phytotron</h1>
-                <h3>Take care of your pogona</h3>
+    <div class = "background">
+        <!-- video -->
+        <br>
+        <div class="jumbotron jumbotron-no-padding">
+            <video id="video-background" preload="" muted="" autoplay="" loop="">
+                <source src="img/videos/pogona-qui-mange.mp4" type="video/mp4">
+            </video>
+            <div class="jumbotron-overlay ">
+                <div class="contain jumbotron-padding text-center">
+                    <h1 class="display-4">Manage your phytotron</h1>
+                    <h3>Take care of your pogona</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page -->
+
+        <br>
+        <br>
+        <div class="container text-center">
+            <h2> Pogotron </h2>
+            <br>
+            Notre site a pour but de contrôler à distance les paramètres environnementaux de vos terrariums
+            <br>
+            <br>
+            Voici les différents fonctionnalités :
+            <br>
+            <br>
+        </div>
+
+        <div class = "container">
+            <div class="row">
+                <div class ="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="img/icons/carte/goutte.jpg" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Hygrométrie</h5>
+                                    <p class="card-text">Mesure de l'humidité</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class ="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="img/icons/carte/thermometre.png" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Température</h5>
+                                    <p class="card-text">Mesure de la chaleur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "row">
+                <div class ="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="img/icons/carte/lum-intensite.jpg" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Luminosité</h5>
+                                    <p class="card-text">Mesure de l'intensité lumineuse</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class ="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="img/icons/carte/rainbow.png" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Spectre lumineux</h5>
+                                    <p class="card-text">Mesure de le spectre lumineux</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Page -->
-    <br>
-
-    <div class="container-fluid">
-
-
-    </div>
-
     <!-- footer -->
 
-    <footer class="py-3 bg-light">
+    <footer class="py-3 color_nav">
         <div class="container">
             <p class="m-0 text-center text-dark">
                 © 2020 Copyright : Pogotron
