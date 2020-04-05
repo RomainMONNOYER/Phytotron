@@ -1,3 +1,8 @@
+////////////////////////////////////////////////
+//Probleme de cache
+////////////////////////////////////////////
+
+
 
 self.addEventListener('install', function(event) {
     console.log('[Service Worker] Installing Service Worker ...', event);
@@ -20,7 +25,7 @@ self.addEventListener('install', function(event) {
                     'js/promise.js',
                     'js/app.js',
 
-                    //Supplément
+                    //Supplement
                     'img/pogona-qui-mange.mp4'
                 ]);
             })
