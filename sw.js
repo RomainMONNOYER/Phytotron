@@ -1,8 +1,8 @@
-importScripts('js/idb.js');
-importScripts ("js/utility");
+importScripts('./js/idb.js');
+importScripts('./js/utility.js');
 
-var CACHE_STATIC_NAME = 'static-v4';
-var CACHE_DYNAMIC_NAME = 'dynamic-v4';
+var CACHE_STATIC_NAME = 'static-v6';
+var CACHE_DYNAMIC_NAME = 'dynamic-v6';
 var STATIC_FILES=[
     //pages
     'index.html',
@@ -18,17 +18,12 @@ var STATIC_FILES=[
     'js/bootstrap.min.js',
     'js/fetch.js',
     'js/idb.js',
-    'js/utility.js',
     'js/promise.js',
     'js/app.js',
 
     //Supplement
     'img/videos/pogona-qui-mange.mp4'
 ];
-
-var dbPromise = idb.open('store',1,function (db) {
-    db.createObjectStore('something')
-});
 
 self.addEventListener('install', function(event) {
     console.log('[Service Worker] Installing Service Worker ...', event);
@@ -70,7 +65,7 @@ function isInArray(string, array) {
 
 self.addEventListener('fetch', function (event) {
 
-    var url = 'https://pwagram-99adf.firebaseio.com/posts';
+    var url = 'https://pogotron-646fd.firebaseio.com/posts';
     if (event.request.url.indexOf(url) > -1) {
         event.respondWith(fetch(event.request)
             .then(function (res) {
@@ -107,14 +102,14 @@ self.addEventListener('fetch', function (event) {
                                         return res;
                                     })
                             })
-                            .catch(function (err) {
-                                return caches.open(CACHE_STATIC_NAME)
-                                    .then(function (cache) {
-                                        if (event.request.headers.get('accept').includes('text/html')) {
-                                            return cache.match('/offline.html');
-                                        }
-                                    });
-                            });
+                            //.catch(function (err) {
+                            //    return caches.open(CACHE_STATIC_NAME)
+                            //        .then(function (cache) {
+                            //            if (event.request.headers.get('accept').includes('text/html')) {
+                            //                return cache.match('/offline.html');
+                            //            }
+                            //        });
+                            //});
                     }
                 })
         );
