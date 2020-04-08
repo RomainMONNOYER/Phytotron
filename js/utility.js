@@ -1,7 +1,7 @@
 
 var dbPromise = idb.open('posts-store', 1, function (db) {
     if (!db.objectStoreNames.contains('posts')) {
-        db.createObjectStore('posts', {keyPath: 'id'});
+        db.createObjectStore('posts', {keyPath: 'key',autoIncrement: true});
     }
 });
 

@@ -1,11 +1,12 @@
-importScripts('./js/idb.js');
-importScripts('./js/utility.js');
+importScripts('js/idb.js');
+importScripts('js/utility.js');
 
-var CACHE_STATIC_NAME = 'static-v4';
-var CACHE_DYNAMIC_NAME = 'dynamic-v4';
+var CACHE_STATIC_NAME = 'static-v6';
+var CACHE_DYNAMIC_NAME = 'dynamic-v6';
 var STATIC_FILES=[
     //pages
     'index.html',
+    'graphes.html',
 
     //CSS
     'css/bootstrap.min.css',
@@ -20,6 +21,8 @@ var STATIC_FILES=[
     'js/idb.js',
     'js/promise.js',
     'js/app.js',
+    'js/highstock.js',
+    'js/feed.js',
 
     //Supplement
     'img/videos/pogona-qui-mange.mp4'
@@ -76,7 +79,7 @@ self.addEventListener('fetch', function (event) {
                     })
                     .then(function (data) {
                         for (var key in data) {
-                            writeData('posts', data[key]);
+                            writeData('posts', data[key])
                         }
                     });
                 return res;

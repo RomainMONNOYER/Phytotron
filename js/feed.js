@@ -30,23 +30,16 @@ fetch(url)
         for (var key in data) {
             dataArray.push(data[key]);
         }
+        createGraph(dataArray);
         updateUI(dataArray);
-    })
-if ('caches' in window) {
-    caches.match(url)
-        .then(function(response) {
-            if (response) {
-                return response.json();
-            }
-        })
+    });
+if ('indexedDB' in window) {
+    readAllData('posts')
         .then(function(data) {
-            console.log('From cache', data);
             if (!networkDataReceived) {
-                var dataArray = [];
-                for (var key in data) {
-                    dataArray.push(data[key]);
-                }
-                updateUI(dataArray)
+                console.log('From cache', data);
+                updateUI(data);
+
             }
         });
 }
