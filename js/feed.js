@@ -4,7 +4,7 @@ function execute(data){
     console.log(data);
     var newDiv=document.createElement("div");
     newDiv.className=data.id;
-    newDiv.textContent="Id : " + data.id + " Type : " + data.type;
+    newDiv.textContent="Id : " + data[0] + " Type : " + data[1];
 
     var currentDiv=document.getElementById("temperature");
     currentDiv.appendChild(newDiv);

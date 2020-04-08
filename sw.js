@@ -1,8 +1,8 @@
 importScripts('js/idb.js');
 importScripts('js/utility.js');
 
-var CACHE_STATIC_NAME = 'static-v3';
-var CACHE_DYNAMIC_NAME = 'dynamic-v3';
+var CACHE_STATIC_NAME = 'static-v7';
+var CACHE_DYNAMIC_NAME = 'dynamic-v7';
 var STATIC_FILES=[
     //pages
     'index.html',
@@ -25,6 +25,13 @@ var STATIC_FILES=[
     'js/feed.js',
 
     //Supplement
+    //img
+    'img/carte/goutte.jpg',
+    'img/carte/light.png',
+    'img/carte/lum-intensite.jpg',
+    'img/carte/rainbow.png',
+    'img/carte/thermometre.png',
+    //video
     'img/videos/pogona-qui-mange.mp4'
 ];
 
