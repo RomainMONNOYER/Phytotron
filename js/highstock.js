@@ -1,4 +1,5 @@
 // Create the chart
+
 Highcharts.stockChart('temperature', {
     //chart: {
     //         events: {
@@ -75,14 +76,15 @@ Highcharts.stockChart('temperature', {
     },
 
     data: {
-        //rowsURL: "https://demo-live-data.highcharts.com/time-rows.json",
+        //rowsURL: "https://pogotron-646fd.firebaseio.com/posts.json",
         csvURL:"https://demo-live-data.highcharts.com/vs-load.csv",
         enablePolling: true,
         dataRefreshRate: 1
     }
 });
 
-Highcharts.stockChart('hygrometrie', {
+
+Highcharts.stockChart('hygrometry', {
     //chart: {
     //         events: {
     //             load: function () {
@@ -159,7 +161,7 @@ Highcharts.stockChart('hygrometrie', {
     },
 
     data: {
-        //rowsURL: "https://demo-live-data.highcharts.com/time-rows.json",
+        //rowsURL: "https://pogotron-646fd.firebaseio.com/posts.json",
         csvURL:"https://demo-live-data.highcharts.com/vs-load.csv",
         enablePolling: true,
         dataRefreshRate: 1

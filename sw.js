@@ -1,8 +1,8 @@
 importScripts('./js/idb.js');
 importScripts('./js/utility.js');
 
-var CACHE_STATIC_NAME = 'static-v2';
-var CACHE_DYNAMIC_NAME = 'dynamic-v2';
+var CACHE_STATIC_NAME = 'static-v4';
+var CACHE_DYNAMIC_NAME = 'dynamic-v4';
 var STATIC_FILES=[
     //pages
     'index.html',
@@ -76,7 +76,7 @@ self.addEventListener('fetch', function (event) {
                     })
                     .then(function (data) {
                         for (var key in data) {
-                            writeData('posts', data[key])
+                            writeData('posts', data[key]);
                         }
                     });
                 return res;
