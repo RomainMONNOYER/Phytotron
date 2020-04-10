@@ -75,21 +75,35 @@ function isInArray(string, array) {
 
 self.addEventListener('fetch', function (event) {
 
-    var url = 'https://pogotron-646fd.firebaseio.com/posts';
+    var url = 'https://pogotron-646fd.firebaseio.com/';
     if (event.request.url.indexOf(url) > -1) {
         event.respondWith(fetch(event.request)
             .then(function (res) {
                 var clonedRes = res.clone();
-                clearAllData('posts')
-                    .then(function () {
-                        return clonedRes.json();
-                    })
-                    .then(function (data) {
-                        for (var key in data) {
-                            writeData('posts', data[key])
-                        }
-                    });
-                return res;
+                if(event.request.url.indexOf(url+"posts")>-1){
+                    clearAllData('posts')
+                        .then(function () {
+                            return clonedRes.json();
+                        })
+                        .then(function (data) {
+                            for (var key in data) {
+                                writeData('posts', data[key])
+                            }
+                        });
+                    return res;
+                }else if(event.request.url.indexOf(url+"parametre")>-1){
+                    clearAllData('parametre')
+                        .then(function () {
+                            return clonedRes.json();
+                        })
+                        .then(function (data) {
+                            for (var key in data) {
+                                writeData('parametre', data[key])
+                            }
+                        });
+                    return res;
+                }
+
             })
         );
     } else if (isInArray(event.request.url, STATIC_FILES)) {
@@ -121,6 +135,47 @@ self.addEventListener('fetch', function (event) {
                             //        });
                             //});
                     }
+                })
+        );
+    }
+});
+
+
+
+/////////////////////////////
+self.addEventListener('sync', function(event) {
+    console.log('[Service Worker] Background syncing', event);
+
+    //Parameters background syncronisation
+    if (event.tag === 'sync-new-parameters') {
+        console.log('[Service Worker] Syncing new Parameters');
+        event.waitUntil(
+            readAllData('sync-parameters')
+                .then(function(data) {
+                    for (var dt of data) {
+                        fetch('https://pogotron-646fd.firebaseio.com/parametre.json', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                id: dt.id,
+                                min_temperature:dt.min_temperature,
+                                max_temperature:dt.max_temperature
+                            })
+                        })
+                            .then(function(res) {
+                                console.log('Sent data', res);
+                                if (res.ok) {
+                                    deleteItemFromData('sync-parameters', dt.id); // Isn't working correctly!
+                                }
+                            })
+                            .catch(function(err) {
+                                console.log('Error while sending data', err);
+                            });
+                    }
+
                 })
         );
     }
