@@ -81,89 +81,7 @@
             </div>
 
         </div>
-        <div class="row justify-content-center py-3">
-            <div class="col-10">
-                <div class="card">
-                    <form  name="myForm" onsubmit="executeData()" method="post">
-                        <div class="card-body">
-                            <h5 class="card-title">Temperature</h5>
-                            <div class="range-slider form-group">
-                                <input type="range" class="js-range-slider"  value="" name="fname" />
-                            </div>
-                            <div class="card-text container">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <div class="row">
-                                            <p>From :</p>
-                                        </div>
-                                        <div class="row">
-                                            <p>To :</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="row">
-                                            <div class="extra-controls form-group">
-                                                <input type="number" step="0.1" class="js-input-from" value="0" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="extra-controls form-group">
-                                                <input type="number" class="js-input-to" value="0" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <button type="button" class="btn btn-primary" onclick="executeData()">Submit changes</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-        <div class="row justify-content-center py-3">
-            <div class="col-10">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Hygrometry</h5>
-                        <div class="range-slider">
-                            <input type="range" class="js-range-slider"  value="" />
-                        </div>
-                        <div class="card-text container">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="row">
-                                        <p>From :</p>
-                                    </div>
-                                    <div class="row">
-                                        <p>To :</p>
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="row">
-                                        <div class="extra-controls">
-                                            <input type="text" class="js-input-from" value="0" />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="extra-controls">
-                                            <input type="text" class="js-input-to" value="0" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <button type="button" class="btn btn-primary">Submit changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+        
 
     <!-- footer -->
 
@@ -198,7 +116,7 @@
     <script src="js/app.js"></script>
     <script src="js/feed.js"></script>
     <script src="js/highstock.js"></script>
-    <script src="js/sliders.js"></script>
+    <script src="js/sliderTemperature.js"></script>
     <script src="js/temp.js"></script>
     <script src="js/periodicFetch.js"></script>
 

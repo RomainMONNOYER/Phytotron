@@ -1,6 +1,6 @@
-var $range = $(".js-range-slider"),
-    $inputFrom = $(".js-input-from"),
-    $inputTo = $(".js-input-to"),
+var $range = $(".js-range-slider-temperature"),
+    $inputFrom = $(".js-input-from-temperature"),
+    $inputTo = $(".js-input-to-temperature"),
     instance,
     min = -50,  //range min du slider
     max = 50,   //range max du slider
