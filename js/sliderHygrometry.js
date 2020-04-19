@@ -1,6 +1,6 @@
-var $range = $(".js-range-slider"),
-    $inputFrom = $(".js-input-from"),
-    $inputTo = $(".js-input-to"),
+var $rangeHygrometry = $(".js-range-slider-hygrometry"),
+    $inputFrom = $(".js-input-from-hygrometry"),
+    $inputTo = $(".js-input-to-hygrometry"),
     instance,
     min = -50,  //range min du slider
     max = 50,   //range max du slider
@@ -27,7 +27,7 @@ function sendData() {
         })
 }
 
-$range.ionRangeSlider({
+$rangeHygrometry.ionRangeSlider({
     skin: "round",
     type: "double",
     min: min,   //range min
@@ -44,7 +44,7 @@ $range.ionRangeSlider({
     }
 });
 
-instance = $range.data("ionRangeSlider");
+instance = $rangeHygrometry.data("ionRangeSlider");
 
 function updateInputs (data) {
     from = data.from;

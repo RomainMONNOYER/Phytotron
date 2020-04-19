@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Graphes </title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carte.css">
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Safari mobile web app -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Amelioration: héberger soi même -->
+    <script src="https://kit.fontawesome.com/d33de8c786.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-md navbar-light color_nav sticky-top">
+
+    <i class="fas fa-2x fa-otter"></i>&nbsp;
+    <a class="navbar-brand" href="index.html">Pogotron</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><i class = "fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fas fa-cog"></i> Settings </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="graphes.html"> <i class="fas fa-chart-line"></i> Graphs </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-book"></i> Wiki
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Vivarium</a>
+                    <a class="dropdown-item" href="#">Phytotron</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Others...</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+
+</nav>
+    <div class="row justify-content-center py-3">
+        <div class="col-10">
+            <div class="card">
+                <form  name="myForm" onsubmit="executeData()" method="post">
+                    <div class="card-body">
+                        <h5 class="card-title">Temperature</h5>
+                        <div class="range-slider form-group">
+                            <input type="range" class="js-range-slider-temperature"  value="" name="fname" />
+                        </div>
+                        <div class="card-text container">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="row">
+                                        <p>From :</p>
+                                    </div>
+                                    <div class="row">
+                                        <p>To :</p>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="row">
+                                        <div class="extra-controls form-group">
+                                            <input type="number" step="0.1" class="js-input-from-temperature" value="0" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="extra-controls form-group">
+                                            <input type="number" step="0.1" class="js-input-to-temperature" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-primary" onclick="executeData()">Submit changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="row justify-content-center py-3">
+        <div class="col-10">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hygrometry</h5>
+                    <div class="range-slider">
+                        <input type="range" class="js-range-slider-hygrometry"  value="" />
+                    </div>
+                    <div class="card-text container">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="row">
+                                    <p>From :</p>
+                                </div>
+                                <div class="row">
+                                    <p>To :</p>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="row">
+                                    <div class="extra-controls">
+                                        <input type="number" step="0.1" class="js-input-from-hygrometry" value="0" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="extra-controls">
+                                        <input type="number" step="0.1" class="js-input-to-hygrometry" value="0" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="button" class="btn btn-primary">Submit changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+
+<footer class="py-3 color_nav">
+    <div class="container">
+        <p class="m-0 text-center text-dark">
+            © 2020 Copyright : Pogotron
+        </p>
+        <p class="m-0 text-center text-dark">
+            By Monnoyer Romain & Zanotto Anthony
+        </p>
+    </div>
+</footer>
+
+
+<!-- JavaScript -->
+<!-- <script src="js/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>  -->
+<!-- <script src="js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>             -->
+<!-- <script src="js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>          -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+
+<script src="js/fetch.js"></script>
+<script src="js/idb.js"></script>
+<script src="js/utility.js"></script>
+<script src="js/promise.js"></script>
+<script src="js/app.js"></script>
+<script src="js/sliderTemperature.js"></script>
+<script src="js/sliderHygrometry.js"></script>
+
+<script src="js/temp.js"></script>
+<script src="js/periodicFetch.js"></script>
+
+
+
+
+</body>
+</html>
