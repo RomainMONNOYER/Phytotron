@@ -39,7 +39,6 @@ if ('indexedDB' in window) {
             if (!networkDataReceived) {
                 console.log('From cache', data);
                 updateUI(data);
-
             }
         });
 }

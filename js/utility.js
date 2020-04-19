@@ -4,11 +4,11 @@ var dbPromise = idb.open('posts-store', 1, function (db) {
         db.createObjectStore('posts', {keyPath: 'key',autoIncrement: true});
     }
     if (!db.objectStoreNames.contains('parametre')) {
-        db.createObjectStore('parametre', {keyPath: 'min_temperature'});
+        db.createObjectStore('parametre', {keyPath: 'key', autoIncrement: true});
     }
     //creating store sync parameters
     if (!db.objectStoreNames.contains('sync-parameters')) {
-        db.createObjectStore('sync-parameters', {keyPath: 'id'});
+        db.createObjectStore('sync-parameters', {keyPath: 'key', autoIncrement:true});
     }
 });
 
