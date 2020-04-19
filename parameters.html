@@ -23,60 +23,103 @@
         }
     </style>
 </head>
-<div>
 
-<!-- Navbar-->
-<nav class="navbar navbar-expand-md navbar-light color_nav sticky-top">
+<body>
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-md navbar-light color_nav sticky-top">
 
-    <i class="fas fa-2x fa-otter"></i>&nbsp;
-    <a class="navbar-brand" href="index.html">Pogotron</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html"><i class = "fas fa-home"></i> Home </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="parameters.html"> <i class="fas fa-cog"></i> Settings </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="graphes.html"> <i class="fas fa-chart-line"></i> Graphs </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-book"></i> Wiki
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Vivarium</a>
-                    <a class="dropdown-item" href="#">Phytotron</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Others...</a>
+        <i class="fas fa-2x fa-otter"></i>&nbsp;
+        <a class="navbar-brand" href="index.html">Pogotron</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html"><i class = "fas fa-home"></i> Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="parameters.html"> <i class="fas fa-cog"></i> Settings </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="graphes.html"> <i class="fas fa-chart-line"></i> Graphs </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-book"></i> Wiki
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Vivarium</a>
+                        <a class="dropdown-item" href="#">Phytotron</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Others...</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="background">
+        <br>
+        <div class="text-center">
+            <h2>Settings</h2>
+        </div>
+        <div class="row justify-content-center py-3">
+            <div class="col-10">
+                <div class="card">
+                    <div class="box_shadow">
+                        <form  name="myForm" onsubmit="executeData()" method="post">
+                            <div class="card-body">
+                                <h5 class="card-title">Temperature</h5>
+                                <div class="range-slider form-group">
+                                    <input type="range" class="js-range-slider-temperature"  value="" name="fname" />
+                                </div>
+                                <div class="card-text container">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div class="row">
+                                                <p>From :</p>
+                                            </div>
+                                            <div class="row">
+                                                <p>To :</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="row">
+                                                <div class="extra-controls form-group">
+                                                    <input type="number" step="0.1" class="js-input-from-temperature" value="0" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="extra-controls form-group">
+                                                    <input type="number" step="0.1" class="js-input-to-temperature" value="0" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button type="button" class="btn btn-primary" onclick="executeData()">Submit changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
+            </div>
 
-<div class="background">
-    <br>
-    <div class="text-center">
-        <h2>Settings</h2>
-    </div>
-    <div class="row justify-content-center py-3">
-        <div class="col-10">
-            <div class="card">
-                <div class="box_shadow">
-                    <form  name="myForm" onsubmit="executeData()" method="post">
+        </div>
+        <div class="row justify-content-center py-3">
+            <div class="col-10">
+                <div class="card">
+                    <div class="box_shadow">
                         <div class="card-body">
-                            <h5 class="card-title">Temperature</h5>
-                            <div class="range-slider form-group">
-                                <input type="range" class="js-range-slider-temperature"  value="" name="fname" />
+                            <h5 class="card-title">Hygrometry</h5>
+                            <div class="range-slider">
+                                <input type="range" class="js-range-slider-hygrometry"  value="" />
                             </div>
                             <div class="card-text container">
                                 <div class="row">
@@ -90,83 +133,40 @@
                                     </div>
                                     <div class="col-auto">
                                         <div class="row">
-                                            <div class="extra-controls form-group">
-                                                <input type="number" step="0.1" class="js-input-from-temperature" value="0" />
+                                            <div class="extra-controls">
+                                                <input type="number" step="0.1" class="js-input-from-hygrometry" value="0" />
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="extra-controls form-group">
-                                                <input type="number" step="0.1" class="js-input-to-temperature" value="0" />
+                                            <div class="extra-controls">
+                                                <input type="number" step="0.1" class="js-input-to-hygrometry" value="0" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <button type="button" class="btn btn-primary" onclick="executeData()">Submit changes</button>
+                                <button type="button" class="btn btn-primary">Submit changes</button>
                             </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <div class="row justify-content-center py-3">
-        <div class="col-10">
-            <div class="card">
-                <div class="box_shadow">
-                    <div class="card-body">
-                        <h5 class="card-title">Hygrometry</h5>
-                        <div class="range-slider">
-                            <input type="range" class="js-range-slider-hygrometry"  value="" />
-                        </div>
-                        <div class="card-text container">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="row">
-                                        <p>From :</p>
-                                    </div>
-                                    <div class="row">
-                                        <p>To :</p>
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="row">
-                                        <div class="extra-controls">
-                                            <input type="number" step="0.1" class="js-input-from-hygrometry" value="0" />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="extra-controls">
-                                            <input type="number" step="0.1" class="js-input-to-hygrometry" value="0" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <button type="button" class="btn btn-primary">Submit changes</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
+        <!-- footer -->
+
+        <footer class="py-3 color_nav">
+            <div class="container">
+                <p class="m-0 text-center text-dark">
+                    © 2020 Copyright : Pogotron
+                </p>
+                <p class="m-0 text-center text-dark">
+                    By Monnoyer Romain & Zanotto Anthony
+                </p>
+            </div>
+        </footer>
     </div>
-    <!-- footer -->
-
-    <footer class="py-3 color_nav">
-        <div class="container">
-            <p class="m-0 text-center text-dark">
-                © 2020 Copyright : Pogotron
-            </p>
-            <p class="m-0 text-center text-dark">
-                By Monnoyer Romain & Zanotto Anthony
-            </p>
-        </div>
-    </footer>
-</div>
 
 <!-- JavaScript -->
 <!-- <script src="js/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>  -->

@@ -1,0 +1,13 @@
+.bloc1
+{
+    display: table-cell;
+    vertical-align: middle;
+    border: 1px groove  black;    /* encadrer + type d'encadrement + le nombre de pixel de l'encadrement */
+    padding: 25px;   /* distance entre le texte et le cadre*/
+    width: 350px;
+    height: 350px;
+    background-color: white;
+    border-radius: 10px 10px 10px 10px; /* bordure */
+    /*box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
