@@ -1,64 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>test</title>
-    </head>
-    <body>
-        <a href="#eng" data-reload>English</a>
-        <a href="#fr" data-reload>Français</a>
-        <a href="#es" data-reload>Espagnöl</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Graphes </title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carte.css">
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-        <p id="hi">
-            Salut tout le monde!
-        </p>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Safari mobile web app -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Amelioration: héberger soi même -->
+    <script src="https://kit.fontawesome.com/d33de8c786.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Old Standard TT', serif;
+        }
+    </style>
+</head>
 
-        <script type="text/javascript">
+<body>
+<!-- Navbar-->
+<script src="js/navbar.js"></script>
+<p id="hi">
+    Salut tout le monde!
+</p>
 
-            //Define language reload anchors
-            var dataReload = document.querySelectorAll("[data-reload]");
 
-            //Language translations
-            var language =
-                {
-                    eng:
-                        {
-                            welcome : "Welcome everyone!"
-                        },
 
-                    fr:
-                        {
-                            welcome: "Salut tout le monde!"
-                        },
-                    es:
-                        {
-                            welcome:"Bienvenidos todos!"
-                        }
 
-                };
 
-            //Define language via window hash
-            if (window.location.hash)
-            {
-                if (window.location.hash == "#eng") {
-                    hi.textContent = language.eng.welcome;
-                }else if (window.location.hash == "#fr") {
-                    hi.textContent = language.fr.welcome;
-                }else if (window.location.hash == "#es") {
-                    hi.textContent = language.es.welcome;
-                }
-            }
+<!-- footer -->
 
-            //Define language reload onclick illiteration
-            for (i = 0; i < dataReload.length; i++)
-            {
-                dataReload[i].onclick = function()
-                {
-                    window.location.href=this.getAttribute("href");
-                    window.location.reload(true);
-                };
-            }
+    <script src="js/footer.js"></script>
+</div>
 
-        </script>
-    </body>
+
+<!-- JavaScript -->
+<!-- <script src="js/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>  -->
+<!-- <script src="js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>             -->
+<!-- <script src="js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>          -->
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+
+<script src="js/fetch.js"></script>
+<script src="js/idb.js"></script>
+<script src="js/utility.js"></script>
+<script src="js/promise.js"></script>
+<script src="js/app.js"></script>
+<script src="js/sliderTemperature.js"></script>
+<script src="js/sliderHygrometry.js"></script>
+
+<script src="js/temp.js"></script>
+<script src="js/periodicFetch.js"></script>
+
+<script src="json/textContent.js"></script>
+<script src="js/multilingual.js"></script>
+
+</body>
 </html>
