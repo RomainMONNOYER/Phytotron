@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>test</title>
+    </head>
+    <body>
+        <a href="#eng" data-reload>English</a>
+        <a href="#fr" data-reload>Français</a>
+        <a href="#es" data-reload>Espagnöl</a>
+
+        <p id="hi">
+            Salut tout le monde!
+        </p>
+
+        <script type="text/javascript">
+
+            //Define language reload anchors
+            var dataReload = document.querySelectorAll("[data-reload]");
+
+            //Language translations
+            var language =
+                {
+                    eng:
+                        {
+                            welcome : "Welcome everyone!"
+                        },
+
+                    fr:
+                        {
+                            welcome: "Salut tout le monde!"
+                        },
+                    es:
+                        {
+                            welcome:"Bienvenidos todos!"
+                        }
+
+                };
+
+            //Define language via window hash
+            if (window.location.hash)
+            {
+                if (window.location.hash == "#eng") {
+                    hi.textContent = language.eng.welcome;
+                }else if (window.location.hash == "#fr") {
+                    hi.textContent = language.fr.welcome;
+                }else if (window.location.hash == "#es") {
+                    hi.textContent = language.es.welcome;
+                }
+            }
+
+            //Define language reload onclick illiteration
+            for (i = 0; i < dataReload.length; i++)
+            {
+                dataReload[i].onclick = function()
+                {
+                    window.location.href=this.getAttribute("href");
+                    window.location.reload(true);
+                };
+            }
+
+        </script>
+    </body>
+</html>
