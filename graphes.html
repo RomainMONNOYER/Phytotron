@@ -17,9 +17,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Amelioration: héberger soi même -->
     <script src="https://kit.fontawesome.com/d33de8c786.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Old Standard TT', serif;
+        }
+    </style>
 </head>
-<body>
 
+<body>
     <!-- Navbar-->
     <nav class="navbar navbar-expand-md navbar-light color_nav sticky-top">
 
@@ -31,10 +36,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html"><i class = "fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html"><i class = "fas fa-home"></i> Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> <i class="fas fa-cog"></i> Settings </a>
+                    <a class="nav-link" href="parameters.html"> <i class="fas fa-cog"></i> Settings </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="graphes.html"> <i class="fas fa-chart-line"></i> Graphs </a>
@@ -56,9 +61,12 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
-
     </nav>
     <div class = "background">
+        <br>
+        <div class="text-center">
+            <h2>Graphs</h2>
+        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
@@ -76,7 +84,9 @@
         <div class="row justify-content-center py-3">
             <div class="col-10">
                 <div class="card">
-                    <div id="temperature"></div>
+                    <div class = "box_shadow">
+                        <div id="temperature"></div>
+                    </div>
                 </div>
             </div>
 
