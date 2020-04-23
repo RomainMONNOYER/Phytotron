@@ -19,3 +19,4 @@ function createGraph(data){
         }]
     });
 }
+//ajax load hightchart
