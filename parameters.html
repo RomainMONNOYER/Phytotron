@@ -116,39 +116,80 @@
             <div class="col-10">
                 <div class="card">
                     <div class="box_shadow">
-                        <div class="card-body">
-                            <h5 class="card-title">Hygrometry</h5>
-                            <div class="range-slider">
-                                <input type="range" class="js-range-slider-hygrometry"  value="" />
-                            </div>
-                            <div class="card-text container">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <div class="row">
-                                            <p>From :</p>
-                                        </div>
-                                        <div class="row">
-                                            <p>To :</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="row">
-                                            <div class="extra-controls">
-                                                <input type="number" step="0.1" class="js-input-from-hygrometry" value="0" />
+                        <form  name="myForm" onsubmit="executeData()" method="post">
+                            <div class="card-body">
+                                <h5 class="card-title">Hygrometry</h5>
+                                <div class="range-slider form-group">
+                                    <input type="range" class="js-range-slider-hygrometry"  value="" name="fname" />
+                                </div>
+                                <div class="card-text container">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <div class="row">
+                                                <div class="extra-controls form-group">
+                                                    <label for="fromHygrometry">From :</label>
+                                                    <input id="fromHygrometry" type="number" step="0.1" class="js-input-from-hygrometry" value="0" />
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="extra-controls">
-                                                <input type="number" step="0.1" class="js-input-to-hygrometry" value="0" />
+                                            <div class="row">
+                                                <div class="extra-controls form-group">
+                                                    <label for="toHygrometry">To :</label>
+                                                    <input id="toHygrometry" type="number" step="0.1" class="js-input-to-hygrometry" value="0" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="text-right">
+                                    <button type="button" class="btn btn-primary" onclick="executeData()">Submit changes</button>
+                                </div>
                             </div>
-                            <div class="text-right">
-                                <button type="button" class="btn btn-primary">Submit changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center py-3">
+            <div class="col-10">
+                <div class="card">
+                    <div class="box_shadow">
+                        <form  name="Form" onsubmit="executeData()" method="post">
+                            <div class="card-body">
+                                <h5 class="card-title">Light intensity</h5>
+                                <div class="range-slider form-group">
+                                    <input type="range" class="js-range-slider-lightIntensity"  value="" name="fname" />
+                                </div>
+                                <div class="card-text container">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <div class="row">
+                                                <div class="extra-controls form-group">
+                                                    <label for="lightIntensity">Light intensity :</label>
+                                                    <input type="number" step="0.1" id="lightIntensity"class="js-input-from-lightIntensity" value="0" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="extra-controls form-group">
+                                                    <label for="startTime">From :</label>
+                                                    <input id="startTime" type="time"/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="extra-controls form-group">
+                                                    <label for="endTime">To :</label>
+                                                    <input id="endTime" type="time"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button type="button" class="btn btn-primary" onclick="executeData()">Submit changes</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -173,8 +214,8 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>                       -->
-<<!-- script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>    -->
-<<!-- script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  -->
+<!-- script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>    -->
+<!-- script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
 
@@ -186,6 +227,7 @@
 <script src="js/sliderTemperature.js"></script>
 <script src="js/sliderHygrometry.js"></script>
 
+<script src="js/lightIntensity.js"></script>
 <script src="js/temp.js"></script>
 <script src="js/periodicFetch.js"></script>
 
