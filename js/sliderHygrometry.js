@@ -1,7 +1,7 @@
 var $rangeHygrometry = $(".js-range-slider-hygrometry"),
-    $inputFrom = $(".js-input-from-hygrometry"),
-    $inputTo = $(".js-input-to-hygrometry"),
-    instance,
+    $inputFromHygrometry = $(".js-input-from-hygrometry"),
+    $inputToHygrometry = $(".js-input-to-hygrometry"),
+    instanceHygrometry,
     min = -50,  //range min du slider
     max = 50,   //range max du slider
     from = min, // variable qui stock la valeur from du slider
@@ -34,8 +34,8 @@ $rangeHygrometry.ionRangeSlider({
     from: min,  //def initial
     to: max,    //def initial
     step: 0.1,  //graduation
-    onStart: updateInputs,
-    onChange: updateInputs,
+    onStart: updateInputsHygrometry,
+    onChange: updateInputsHygrometry,
 
     onFinish: function (data) {
         console.log("From : " + data.from);
@@ -43,14 +43,14 @@ $rangeHygrometry.ionRangeSlider({
     }
 });
 
-instance = $rangeHygrometry.data("ionRangeSlider");
+instanceHygrometry = $rangeHygrometry.data("ionRangeSlider");
 
-function updateInputs (data) {
+function updateInputsHygrometry (data) {
     from = data.from;
     to = data.to;
 
-    $inputFrom.prop("value", from);
-    $inputTo.prop("value", to);
+    $inputFromHygrometry.prop("value", from);
+    $inputToHygrometry.prop("value", to);
 }
 
 $inputFrom.on("input", function () {
