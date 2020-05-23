@@ -14,7 +14,7 @@ function createGraph(data){
             name: 'AAPL',
             data: data,
             tooltip: {
-                valueDecimals: 2
+                valueDecimals: 1
             }
         }]
     });

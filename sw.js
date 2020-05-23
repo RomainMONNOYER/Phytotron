@@ -153,17 +153,14 @@ self.addEventListener('sync', function(event) {
             readAllData('sync-parameters')
                 .then(function(data) {
                     for (var dt of data) {
+                        var myJson=JSON.stringify(obj.id)+":"+JSON.stringify(obj);
                         fetch('https://pogotron-646fd.firebaseio.com/parametre.json', {
-                            method: 'POST',
+                            method: 'PUT',
                             headers: {
                                 'Content-Type': 'application/json',
                                 'Accept': 'application/json'
                             },
-                            body: JSON.stringify({
-                                id: dt.id,
-                                min_temperature:dt.min_temperature,
-                                max_temperature:dt.max_temperature
-                            })
+                            body: JSON.stringify(dt)
                         })
                             .then(function(res) {
                                 console.log('Sent data', res);

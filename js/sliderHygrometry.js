@@ -2,10 +2,10 @@ var $rangeHygrometry = $(".js-range-slider-hygrometry"),
     $inputFromHygrometry = $(".js-input-from-hygrometry"),
     $inputToHygrometry = $(".js-input-to-hygrometry"),
     instanceHygrometry,
-    min = -50,  //range min du slider
-    max = 50,   //range max du slider
-    from = min, // variable qui stock la valeur from du slider
-    to = max; // variable qui stock la valeur to du slider
+    minHygrometry = -50,  //range min du slider
+    maxHygrometry = 50,   //range max du slider
+    fromHygrometry = minHygrometry, // variable qui stock la valeur from du slider
+    toHygrometry = maxHygrometry; // variable qui stock la valeur to du slider
 //function sendData() {
 //     fetch('https://pogotron-646fd.firebaseio.com/parametre.json', {
 //         method: 'POST',
@@ -29,10 +29,10 @@ var $rangeHygrometry = $(".js-range-slider-hygrometry"),
 $rangeHygrometry.ionRangeSlider({
     skin: "round",
     type: "double",
-    min: min,   //range min
-    max: max,   //range max
-    from: min,  //def initial
-    to: max,    //def initial
+    min: minHygrometry,   //range min
+    max: maxHygrometry,   //range max
+    from: minHygrometry,  //def initial
+    to: maxHygrometry,    //def initial
     step: 0.1,  //graduation
     onStart: updateInputsHygrometry,
     onChange: updateInputsHygrometry,
@@ -46,43 +46,43 @@ $rangeHygrometry.ionRangeSlider({
 instanceHygrometry = $rangeHygrometry.data("ionRangeSlider");
 
 function updateInputsHygrometry (data) {
-    from = data.from;
-    to = data.to;
+    fromHygrometry = data.from;
+    toHygrometry = data.to;
 
-    $inputFromHygrometry.prop("value", from);
-    $inputToHygrometry.prop("value", to);
+    $inputFromHygrometry.prop("value", fromHygrometry);
+    $inputToHygrometry.prop("value", toHygrometry);
 }
 
 $inputFromHygrometry.on("input", function () {
     var val = $(this).prop("value");
 
     // validate
-    if (val < min) {
-        val = min;
-    } else if (val > to) {
-        val = to;
+    if (val < minHygrometry) {
+        val = minHygrometry;
+    } else if (val > toHygrometry) {
+        val = toHygrometry;
     }
 
     instanceHygrometry.update({
         from: val
     });
-    from = parseFloat(val);
+    fromHygrometry = parseFloat(val);
 });
 
 $inputToHygrometry.on("input", function () {
     var val = $(this).prop("value");
 
     // validate
-    if (val < from) {
-        val = from;
-    } else if (val > max) {
-        val = max;
+    if (val < fromHygrometry) {
+        val = fromHygrometry;
+    } else if (val > maxHygrometry) {
+        val = maxHygrometry;
     }
 
     instanceHygrometry.update({
         to: val
     });
-    to=parseFloat(val);
+    toHygrometry=parseFloat(val);
 });
 
 //submission function

@@ -88,15 +88,15 @@ $inputTo.on("input", function () {
 
 //submission function
 function executeData () {
-    alert("from : "+ from+" to : "+to  );
+    alert("from : "+ fromTemperature+" to : "+toTemperature  );
 
     if ('serviceWorker' in navigator && 'SyncManager' in window) {
         navigator.serviceWorker.ready
             .then(function(sw) {
                 var post = {
                     id: "temperature",//new Date().toISOString(),
-                    min_temperature: from,
-                    max_temperature: to
+                    min_temperature: fromTemperature,
+                    max_temperature: toTemperature
                 };
                 writeData('sync-parameters', post)
                     .then(function() {

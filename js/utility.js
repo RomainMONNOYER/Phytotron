@@ -8,7 +8,7 @@ var dbPromise = idb.open('posts-store', 1, function (db) {
     }
     //creating store sync parameters
     if (!db.objectStoreNames.contains('sync-parameters')) {
-        db.createObjectStore('sync-parameters', {keyPath: 'key', autoIncrement:true});
+        db.createObjectStore('sync-parameters', {keyPath: 'id'});
     }
 });
 
