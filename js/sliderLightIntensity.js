@@ -1,10 +1,10 @@
 var $rangeLightIntensity = $(".js-range-slider-lightIntensity"),
     $inputFromLightIntensity = $(".js-input-from-lightIntensity"),
     instanceLightIntensity,
-    min = 0,  //range min du slider
-    max = 100,   //range max du slider
-    from = min, // variable qui stock la valeur from du slider
-    to = max; // variable qui stock la valeur to du slider
+    minLightIntensity = 0,  //range min du slider
+    maxLightIntensity = 100,   //range max du slider
+    fromLightIntensity = minLightIntensity, // variable qui stock la valeur from du slider
+    toLightIntensity = maxLightIntensity; // variable qui stock la valeur to du slider
 //function sendData() {
 //     fetch('https://pogotron-646fd.firebaseio.com/parametre.json', {
 //         method: 'POST',
@@ -27,9 +27,9 @@ var $rangeLightIntensity = $(".js-range-slider-lightIntensity"),
 // }
 $rangeLightIntensity.ionRangeSlider({
     skin: "round",
-    min: min,   //range min
-    max: max,   //range max
-    from: max,  //def initial
+    min: minLightIntensity,   //range min
+    max: maxLightIntensity,   //range max
+    from: maxLightIntensity,  //def initial
     step: 0.1,  //graduation
     onStart: updateInputsLightIntensity,
     onChange: updateInputsLightIntensity,
@@ -43,19 +43,19 @@ $rangeLightIntensity.ionRangeSlider({
 instanceLightIntensity = $rangeLightIntensity.data("ionRangeSlider");
 
 function updateInputsLightIntensity (data) {
-    from = data.from
+    fromLightIntensity = data.from
 
-    $inputFromLightIntensity.prop("value", from);
+    $inputFromLightIntensity.prop("value", fromLightIntensity);
 }
 
 $inputFromLightIntensity.on("input", function () {
     var val = $(this).prop("value");
 
     // validate
-    if (val < min) {
-        val = min;
-    } else if (val > to) {
-        val = to;
+    if (val < minLightIntensity) {
+        val = minLightIntensity;
+    } else if (val > toLightIntensity) {
+        val = toLightIntensity;
     }
 
     instanceLightIntensity.update({
